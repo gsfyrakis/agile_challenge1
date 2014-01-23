@@ -1,9 +1,15 @@
 *~
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /.idea/
 
 =======
+=======
+=======
+/.DS_Store
+>>>>>>> gmaps
+>>>>>>> gmaps
 /.idea/.name
 /.idea/Development.iml
 /.idea/encodings.xml
@@ -15,5 +21,12 @@
 /.idea/scopes/scope_settings.xml
 /.idea/vcs.xml
 /.idea/workspace.xml
+<<<<<<< HEAD
 >>>>>>> ignore
+=======
+<<<<<<< HEAD
+=======
+/policeApp/.DS_Store
+>>>>>>> gmaps
+>>>>>>> gmaps
 /policeApp/app/.DS_Store
