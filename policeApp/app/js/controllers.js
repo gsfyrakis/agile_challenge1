@@ -1,10 +1,22 @@
 'use strict';
 
 var bookingControllers = angular.module('bookingControllers', ['ui.bootstrap']);
+bookingControllers.controller('SearchCtrl', [ '$scope', 
+function SearchCtrl($scope) {
+	$scope.search = function() {
+		$scope.item = {}
+		$scope.item.id = 'hello';
+		$scope.items
+	}
+} ]);
+
 bookingControllers.controller('TabCtrl', [ '$scope', 
 function TabCtrl($scope) {
-
-	} ]);
+	$scope.tabs = [
+	    { title:"Dynamic Title 1", content:'<ng-include src="partials/newCustomer.html" />' },
+	    { title:"Dynamic Title 2", content:"Dynamic content 2" }
+	  ];
+} ]);
 
 	bookingControllers.controller('CustomersCtrl', [ '$scope', 'Customers',
 	function CustomersCtrl($scope, Customers) {
