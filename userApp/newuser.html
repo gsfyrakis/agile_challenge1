@@ -61,14 +61,21 @@
 		 #submit_btn{
 		    position:absolute;
 			width: 100%;
-		 }
+		 }	
 
 		</style>
         <div data-role="header">
              <h3>Upload New Media</h3>
         </div>
   <div data-role="content">
-    <form method="post" action="javascript:void(0);">
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="myFile">
+  <button>Send the file</button>
+</form>
+    </div>
+    </form>
+    <form method="post" action="/upload" enctype="multipart/form-data">
+
       <label for="fname">First name:</label>
       <input type="text" name="fname" id="fname">
 	  

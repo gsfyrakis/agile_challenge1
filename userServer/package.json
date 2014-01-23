@@ -1,9 +1,10 @@
 {
-  "name": "User Server",
+  "name": "UserServer",
   "description": "",
   "author": "Ben Paske",
   "dependencies": {
-    "express": "2.3.x"
+    "express": "2.3.x",
+    "exif": "0.3.3"	
   },
   "engine": "node  0.10.24"
 }
