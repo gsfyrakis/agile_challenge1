@@ -2,7 +2,73 @@
 	<h3>Media Details</h3>
 </div>
 <div class="modal-body">
-	{{ item }}
+	<div class="row">
+		<div class="col-md-6">
+			<h4>Meta Data</h4>
+			<table class="table table-striped table-hover">
+				<tbody>
+					<tr>
+						<td>Id: </td>
+						<td>{{ item.name }}</td>
+					</tr>
+					<tr>
+						<td>Case: </td>
+						<td>{{ item.name }}</td>
+					</tr>
+					<tr>
+						<td>Street: </td>
+						<td>{{ item.name }}</td>
+					</tr>
+					<tr>
+						<td>Upload Date: </td>
+						<td>{{ item.name }}</td>
+					</tr>
+					<tr>
+						<td>Id: </td>
+						<td>{{ item.name }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-6">
+			<h4>Media</h4>
+			<img src="http://placehold.it/200x200/dddddd/ffffff&text=Hey1" alt="Smiley face" height="400" width="400">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3 col-md-offset-6">
+			<a href="http://placehold.it/200x200/dddddd/ffffff&text=Hey1" download="name" title="name">
+				Download Media
+			</a>
+		</div>
+	</div>
+	<div class="row">
+		<h4>Witness Details</h4>
+		<table class="col-md-3">
+			<tbody>
+				<tr>
+					<td>Name:</td>
+					<td>Value</td>
+				</tr>
+				<tr>
+					<td>Address:</td>
+					<td>Value</td>
+				</tr>
+			</tbody>
+		</table>
+		<table class="col-md-3">
+			<tbody>
+				<tr>
+					<td>Telephone:</td>
+					<td>Value</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td>Value</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 <div class="modal-footer">
 	<button class="btn btn-primary" ng-click="close()">Close</button>
