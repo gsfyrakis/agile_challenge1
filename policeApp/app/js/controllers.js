@@ -1,16 +1,14 @@
 'use strict';
 
-var bookingControllers = angular.module('bookingControllers', ['ui.bootstrap']);
-bookingControllers.controller('SearchCtrl', [ '$scope', 
-function SearchCtrl($scope) {
-	$scope.search = function() {
-		$scope.item = {}
-		$scope.item.id = 'hello';
-		$scope.items
+var metControllers = angular.module('metControllers', ['ui.bootstrap']);
+metControllers.controller('SearchCtrl', [ '$scope', 'Item',
+function SearchCtrl($scope, Item) {
+	$scope.search = function() { 
+		$scope.items = Item.query();
 	}
 } ]);
 
-bookingControllers.controller('TabCtrl', [ '$scope', 
+metControllers.controller('TabCtrl', [ '$scope', 
 function TabCtrl($scope) {
 	$scope.tabs = [
 	    { title:"Dynamic Title 1", content:'<ng-include src="partials/newCustomer.html" />' },
@@ -18,7 +16,7 @@ function TabCtrl($scope) {
 	  ];
 } ]);
 
-	bookingControllers.controller('CustomersCtrl', [ '$scope', 'Customers',
+	metControllers.controller('CustomersCtrl', [ '$scope', 'Customers',
 	function CustomersCtrl($scope, Customers) {
 
 		// Define a refresh function, that updates the data from the REST
@@ -76,7 +74,7 @@ function TabCtrl($scope) {
 		$scope.orderBy = 'firstname';
 		}]);
 
-		bookingControllers.controller('DatepickerDemoCtrl', [ '$scope', 
+		metControllers.controller('DatepickerDemoCtrl', [ '$scope', 
 		function DatepickerDemoCtrl($scope) {
 			$scope.today = function() {
 				$scope.dt = new Date();

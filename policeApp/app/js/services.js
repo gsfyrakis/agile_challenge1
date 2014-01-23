@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('bookingServices', ['ngResource'])
-    .factory('Customers', function($resource){
-	return $resource('rest/customers/:customerId', {customerId:'@customerId'});
+angular.module('metServices', ['ngResource'])
+    .factory('Item', function($resource) {
+	return $resource('phones.json', {method:'GET', isArray:true});
 });
