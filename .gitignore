@@ -1,5 +1,19 @@
 *~
 
+<<<<<<< HEAD
 /.idea/
 
+=======
+/.idea/.name
+/.idea/Development.iml
+/.idea/encodings.xml
+/.idea/jsLibraryMappings.xml
+/.idea/libraries/Angular.xml
+/.idea/libraries/Bootstrap.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/scopes/scope_settings.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+>>>>>>> ignore
 /policeApp/app/.DS_Store
