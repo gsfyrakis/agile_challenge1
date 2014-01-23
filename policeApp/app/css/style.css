@@ -1,22 +1,10 @@
 body {
-    padding-top: 125px; /* Whatever the height of your navbar is; the
-                             default is 50px */
+	padding-top: 125px; /* Whatever the height of your navbar is; the
+	default is 50px */
 }
 
 .modal {
-  display: block;
-  height: 0;
-  overflow: visible;
+	width: 80%; /* respsonsive width */
+	margin-left:10%; /* width/2) */
 }
 
-.modal-body:before,
-  .modal-body:after {
-    display: table;
-    content: " ";
-}
-
-.modal-header:before,
-.modal-header:after {
-  display: table;
-  content: " ";
-}
