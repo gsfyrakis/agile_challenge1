@@ -4,6 +4,8 @@ var sys = require('sys');
 var exec = require('child_process').exec;
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
+var formidable = require('formidable');
+
 
 
 //var mediaStore = '/root/policeData/';
@@ -12,7 +14,8 @@ var mediaStore = '/home/ben/policeData/';
 
 var app = express();
 
-app.use(express.bodyParser());
+
+app.use(express.bodyParser({defer: true}));
 app.use(express.static('../userApp'));
 
 
@@ -22,6 +25,12 @@ app.get('/home', function(req, res){
 });
 
 app.post('/upload', function(req, res){
+  var form = new formidable.IncomingForm();
+  form.parse(req, function(err, fields, files) {
+      console.log(fields);
+      console.log(files);       
+      res.end('Thanks guys');
+    });
 
 });
 

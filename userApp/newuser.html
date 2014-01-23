@@ -11,148 +11,137 @@
 <body>
 
 <div data-role="page" id="page">
-		<style>
-			#preview {
-				width: 80%; max-width: 300px;
-			}
-			#preview img {
-				width: 100%;
-			}
-			.hiddenfile {
-			 width: 0px;
-			 height: 0px;
-			 overflow: hidden;
-			}
-			  #mapCanvas {
-				width: 100%;
-				height: 400px;
-				top: 0px;
-			  }
-			 
-			  .controls {
-				margin-top: 2px;
-				border: 1px solid transparent;
-				border-radius: 2px 0 0 2px;
-				box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				height: 32px;
-				outline: none;
-				box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-			}
-			#pac-input {
-				background-color: #fff;
-				width: 100%;
-				height: 40px;
-				font-family: Roboto;
-				font-size: 15px;
-				font-weight: 300;
-				text-overflow: ellipsis;
-			}
+                <style>
+                        #preview {
+                                width: 80%; max-width: 300px;
+                        }
+                        #preview img {
+                                width: 100%;
+                        }
+                        .hiddenfile {
+                         width: 0px;
+                         height: 0px;
+                         overflow: hidden;
+                        }
+                         #mapCanvas {
+                                width: 100%;
+                                height: 400px;
+                                top: 0px;
+                         }
+                        
+                         .controls {
+                                margin-top: 2px;
+                                border: 1px solid transparent;
+                                border-radius: 2px 0 0 2px;
+                                box-sizing: border-box;
+                                -moz-box-sizing: border-box;
+                                height: 32px;
+                                outline: none;
+                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+                        }
+                        #pac-input {
+                                background-color: #fff;
+                                width: 100%;
+                                height: 40px;
+                                font-family: Roboto;
+                                font-size: 15px;
+                                font-weight: 300;
+                                text-overflow: ellipsis;
+                        }
 
-		  #pac-input:focus {
-			border-color: #4d90fe;
-			margin-left: -1px;
-			padding-left: 14px;  /* Regular padding-left + 1. */
-			width: 100%;
-		  }
-		  #mybtn{
-		   width: 100%;
-		  }
-		 #submit_btn{
-		    position:absolute;
-			width: 100%;
-		 }	
+                 #pac-input:focus {
+                        border-color: #4d90fe;
+                        margin-left: -1px;
+                        padding-left: 14px; /* Regular padding-left + 1. */
+                        width: 100%;
+                 }
+                 #mybtn{
+                 width: 100%;
+                 }
+                 #submit_btn{
+                 position:absolute;
+                        width: 100%;
+                 }
 
-		</style>
+                </style>
         <div data-role="header">
              <h3>Upload New Media</h3>
         </div>
   <div data-role="content">
-<<<<<<< HEAD
-<form action="/upload" method="post" enctype="multipart/form-data">
-  <input type="file" name="myFile">
-  <button>Send the file</button>
-</form>
-    </div>
-    </form>
-    <form method="post" action="/upload" enctype="multipart/form-data">
-
-=======
     <form method="post" action="javascript:void(0);" onsubmit="upload()" >
->>>>>>> 0163e2f67e79993a8185a37ac5e2c9adb30e042b
       <label for="fname">First name:</label>
       <input type="text" name="fname" id="fname">
-	  
-	  <label for="lname">Last name:</label>
+        
+         <label for="lname">Last name:</label>
       <input type="text" name="lname" id="lname">
-	  
-	 <label for="email" >Email:</label>
-	 <input type="email" name="email" id="email" >
-	 
-	 <label for="_address">Address:</label>
+        
+         <label for="email" >Email:</label>
+         <input type="email" name="email" id="email" >
+        
+         <label for="_address">Address:</label>
       <input type="text" name="_address" id="_address">
-	  
-	  <label for="city">City:</label>
+        
+         <label for="city">City:</label>
       <input type="text" name="city" id="city">
-	  
-	  <label for="country">Country:</label>
+        
+         <label for="country">Country:</label>
       <input type="text" name="country" id="country">
-	  
-	  <label for="postcode">Postcode:</label>
+        
+         <label for="postcode">Postcode:</label>
       <input type="text" name="postcode" id="postcode">
-	  
-	  <label for="tel" >Tel:</label>
-	 <input type="tel" name="tel" id="tel" >
-	 
-	<!-- <label for="image" >Image:</label>
-	 <input type="file"  name="image" accept="image/*" capture>
-	 -->
-	  <label for="image" >Image:</label>
-	   <div class="hiddenfile"><input type="file"  data-clear-btn="false" id="image" name="image" accept="image/*" capture></div>
-	   <div id="preview"></div>
-		<ul id="mediainfo" data-role="listview" data-inset="true"></ul>
-	   <button id="chooseFile" >Choose file</button>
+        
+         <label for="tel" >Tel:</label>
+         <input type="tel" name="tel" id="tel" >
+        
+        <!-- <label for="image" >Image:</label>
+         <input type="file" name="image" accept="image/*" capture>
+         -->
+         <label for="image" >Image:</label>
+         <div class="hiddenfile"><input type="file" data-clear-btn="false" id="image" name="image" accept="image/*" capture></div>
+         <div id="preview"></div>
+                <ul id="mediainfo" data-role="listview" data-inset="true"></ul>
+         <button id="chooseFile" >Choose file</button>
         
 
-		
-	   
-		<label for="select-choice-0" class="select">Category:</label>
-		<select name="select-choice-0" id="select-choice-0">
-		   <option value="Boston Marathon">Boston Marathon</option>
-		   <option value="London Riots">London Riots</option>
-		   <option value="other">Other</option>
-		</select>
+                
+        
+                <label for="select-choice-0" class="select">Category:</label>
+                <select name="select-choice-0" id="select-choice-0">
+                 <option value="Boston Marathon">Boston Marathon</option>
+                 <option value="London Riots">London Riots</option>
+                 <option value="other">Other</option>
+                </select>
        
-	   	<label id="description" for="textarea">Description:</label>
-	   <div data-role="fieldcontain">
-			<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
-	  </div>
+                 <label id="description" for="textarea">Description:</label>
+         <div data-role="fieldcontain">
+                        <textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+         </div>
 
-	 <!--<label for="datetime-l">Datetime local:</label>
-	  <input type="datetime-local" name="datetime-l" id="datetime-l""> -->
-	  
-	  </br>
-	  </br>
-	  <label for="location" >Location:</label>
-	 <!--  <input id="pac-input2" type="text" name="_search" id="_search">-->
-	<input id="pac-input" name="addressa" class="controls" type="text" value="" placeholder="Search"/>
-	<!--<input type="button" data-role="button" class="ui-btn-left" data-inline="true" value="Search" />-->
-	<button id="mybtn" class= "searchBtn" type="button" >Search</button>
-	  <div id="mapCanvas"></div>
-	  
-	  
+         <!--<label for="datetime-l">Datetime local:</label>
+         <input type="datetime-local" name="datetime-l" id="datetime-l""> -->
+        
+         </br>
+         </br>
+         <label for="location" >Location:</label>
+         <!-- <input id="pac-input2" type="text" name="_search" id="_search">-->
+        <input id="pac-input" name="addressa" class="controls" type="text" value="" placeholder="Search"/>
+        <!--<input type="button" data-role="button" class="ui-btn-left" data-inline="true" value="Search" />-->
+        <button id="mybtn" class= "searchBtn" type="button" >Search</button>
+         <div id="mapCanvas"></div>
+        
+        
 
   <div id="infoPanel">
    <!-- <b>Marker status:</b>
-    <div id="markerStatus"><i>Click and drag the marker.</i></div>-->
+<div id="markerStatus"><i>Click and drag the marker.</i></div>-->
     <b>Current position:</b>
     <div id="info"></div>
     <b>Closest matching address:</b>
     <div id="address"></div>
-	
+        
   </div>
   
-	<input type="submit"  value="Submit">
+        <input type="submit" value="Submit">
   
     </form>
   </div>
@@ -160,72 +149,72 @@
 
 
     <script>
-	
-	$(document).ready( function(){
-	   $('#description').hide();
-	   $('#textarea').hide();
-	  
-	  $('#select-choice-0').change(function() {
+        
+        $(document).ready( function(){
+         $('#description').hide();
+         $('#textarea').hide();
+        
+         $('#select-choice-0').change(function() {
        if ($(this).val() === 'other') {
          $('#description').show();
-	     $('#textarea').show();
-		}
-		else{
-		   $('#description').hide();
-	       $('#textarea').hide();
-		}
-		
-		});
-	});
-	
+         $('#textarea').show();
+                }
+                else{
+                 $('#description').hide();
+         $('#textarea').hide();
+                }
+                
+                });
+        });
+        
     $('#page').on('pageinit', function(){
-		$("#chooseFile").click(function(e){
-			e.preventDefault();
-			$("input[type=file]").trigger("click");
-		});
-		$("input[type=file]").change(function(){
-			var file = $("input[type=file]")[0].files[0];            
-			$("#preview").empty();
-			displayAsImage3(file, "preview");
-			
-			$info = $("#mediainfo");
-			$info.empty();
-			if (file && file.name) {
-				$info.append("<li>Name: <span>" + file.name + "</span></li>");
-			}
-			/**if (file && file.type) {
-				$info.append("<li>size:<span>" + file.type + " bytes</span></li>");
-			}*/
-			if (file && file.size) {
-				$info.append("<li>Size: <span>" + file.size + " bytes</span></li>");
-			}
-			if (file && file.lastModifiedDate) {
-				$info.append("<li>Last modified: <span>" + file.lastModifiedDate + " bytes</span></li>");
-			}
-			$info.listview("refresh");
-		});
+                $("#chooseFile").click(function(e){
+                        e.preventDefault();
+                        $("input[type=file]").trigger("click");
+                });
+                $("input[type=file]").change(function(){
+                        var file = $("input[type=file]")[0].files[0];
+                        $("#preview").empty();
+                        displayAsImage3(file, "preview");
+                        
+                        $info = $("#mediainfo");
+                        $info.empty();
+                        if (file && file.name) {
+                                $info.append("<li>Name: <span>" + file.name + "</span></li>");
+                        }
+                        /**if (file && file.type) {
+                                $info.append("<li>size:<span>" + file.type + " bytes</span></li>");
+                        }*/
+                        if (file && file.size) {
+                                $info.append("<li>Size: <span>" + file.size + " bytes</span></li>");
+                        }
+                        if (file && file.lastModifiedDate) {
+                                $info.append("<li>Last modified: <span>" + file.lastModifiedDate + " bytes</span></li>");
+                        }
+                        $info.listview("refresh");
+                });
     });
 
     function displayAsImage3(file, containerid) {
-		if (typeof FileReader !== "undefined") {
-			var container = document.getElementById(containerid),
-			    img = document.createElement("img"),
-			    reader;
-			container.appendChild(img);
-			reader = new FileReader();
-			reader.onload = (function (theImg) {
-				return function (evt) {
-					theImg.src = evt.target.result;
-				};
-			}(img));
-			reader.readAsDataURL(file);
-			//console.log("ok1");
-			//FileUpload(img, file);
-			//console.log("ok2");
-		}
-	}
-	
-	 var client = new XMLHttpRequest();
+                if (typeof FileReader !== "undefined") {
+                        var container = document.getElementById(containerid),
+                         img = document.createElement("img"),
+                         reader;
+                        container.appendChild(img);
+                        reader = new FileReader();
+                        reader.onload = (function (theImg) {
+                                return function (evt) {
+                                        theImg.src = evt.target.result;
+                                };
+                        }(img));
+                        reader.readAsDataURL(file);
+                        //console.log("ok1");
+                        //FileUpload(img, file);
+                        //console.log("ok2");
+                }
+        }
+        
+         var client = new XMLHttpRequest();
 
         function upload() {
             var file = document.getElementById("image");
@@ -237,7 +226,7 @@
 
             client.open("post", "/upload", true);
             client.setRequestHeader("Content-Type", "multipart/form-data");
-            client.send(formData);  // send formData to the server using XHR
+            client.send(formData); // send formData to the server using XHR
         }
 
         // register handler to check XHR instance's status when receiving the response
