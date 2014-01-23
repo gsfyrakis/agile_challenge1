@@ -1,7 +1,7 @@
 'use strict';
 
 var metApp = angular.module('metApp', [ 
-		'metServices', 'metControllers']);
+		'metServices', 'metControllers','google-maps']);
 
 metApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
