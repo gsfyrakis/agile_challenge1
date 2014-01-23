@@ -37,8 +37,8 @@ function SearchCtrl($scope, Item) {
         bounds: {},
     markers: [
         {
-            latitude: 45,
-            longitude: -74,
+            latitude: 51.549751,
+            longitude:  -0.177498000,
             showWindow: false,
             title: 'Marker 2'
         },
