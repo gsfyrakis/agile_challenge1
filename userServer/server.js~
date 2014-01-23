@@ -15,7 +15,7 @@ var mediaStore = '/home/ben/policeData/';
 var app = express();
 
 
-app.use(express.bodyParser({defer: true}));
+app.use(express.bodyParser());
 app.use(express.static('../userApp'));
 
 
@@ -24,43 +24,46 @@ app.get('/home', function(req, res){
   res.send('Hello World');
 });
 
-app.post('/upload', function(req, res){
-  console.log(req);
-  /*var form = new formidable.IncomingForm();
-  form.parse(req, function(err, fields, files) {
-      console.log(fields);
-      console.log(files);       
-      res.end('Thanks guys');
-    });*/
+app.post('/upload', function(req, res){ 
+
+  fs.readFile(req.files.image.path, function (err, data) {
+
+  var newPath = "/home/ben/policeData/"+req.files.image.originalFilename;
+  fs.writeFile(newPath, data, function (err) {
+    getMetaData(newPath, req.body);
+  });
+  res.send('Thanks');
+});
+
 
 });
 
-app.post('/savevideo', function(req, res){
-
-});
-
-app.post('/savephoto', function(req, res){
-
-});
 
 app.listen(3000);
 console.log('User server on port 3000');
 
 
-function getMetaData(url) {
+function getMetaData(url, body) {
   var child = exec("exiftool -json -n  "+url, function (error, stdout, stderr) {
-    sys.print('stdout: ' + stdout);
-    sys.print('stderr: ' + stderr);
-    if (error !== null) {
-       console.log('exec error: ' + error);
-    }
+    var uploadPhoto = new photo({url: url, long: body.long, latitude: body.lat, date: new Date(body.date), direction: stdout.gpsdirection});
+    uploadPhoto.save();
   });
 }
 
-function saveItem(url) {
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  // yay!
+});
 
 
-}
+var photoSchema = mongoose.Schema({url: String, long: Number, latitude: Number, date: Date, direction: Number});
+var photo = mongoose.model('photo', photoSchema);
+
+
+
+
 
 
 /*function savePhoto(data, callback) {
@@ -76,8 +79,8 @@ function saveItem(url) {
         else {
             console.log(exifData); // Do something with your data!
         }
-      });
     } catch (error) {
+      });
       console.log('Error: ' + error.message);
     }
   });
