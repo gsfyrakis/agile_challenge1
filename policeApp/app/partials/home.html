@@ -145,7 +145,6 @@
 					</table>
 				</tab>
 				<tab heading="Map View">
-                    Map View
 
                 <!--</tab>-->
             <!--</tabset>-->
@@ -172,9 +171,9 @@
                             <markers models="map.markers2" coords="'self'" icon="'icon'" click="'onClicked'"
                                      labelContent="'title'" labelAnchor="22 0" labelClass="marker-labels">
                                 <windows show="'showWindow'" closeClick="'closeClick'">
-                                    <p ng-non-bindable>This is an info window at {{ latitude | number:4 }}, {{ longitude | number:4 }}!</p>
+                                    <p ng-non-bindable>Incident at {{ latitude | number:4 }}, {{ longitude | number:4 }}!</p>
 
-                                    <p class="muted">My marker will stay open when the window is popped up!</p>
+                                    <!--<p class="muted">My marker will stay open when the window is popped up!</p>-->
                                 </windows>
                             </markers>
 
@@ -183,17 +182,17 @@
                                 <windows show="'showWindow'" closeClick="'closeClick'">
                                     <p>Dynamic Marker created via a delay!</p>
 
-                                    <p ng-non-bindable>This is an info window at {{ latitude | number:4 }}, {{ longitude | number:4 }}!</p>
+                                    <p ng-non-bindable>Incident at {{ latitude | number:4 }}, {{ longitude | number:4 }}!</p>
 
-                                    <p class="muted">My marker will stay open when the window is popped up!</p>
+                                    <!--<p class="muted">My marker will stay open when the window is popped up!</p>-->
                                 </windows>
                             </markers>
 
                             <markers models="map.mexiMarkers" coords="'self'" icon="'icon'" click="'onClicked'" >
                                 <windows show="'showWindow'" closeClick="'closeClick'">
                                     <p>Mexi!</p>
-                                    <p ng-non-bindable>This is an info window at {{ latitude | number:4 }}, {{ longitude | number:4 }}!</p>
-                                    <p class="muted">My marker will stay open when the window is popped up!</p>
+                                    <p ng-non-bindable>Incident at {{ latitude | number:4 }}, {{ longitude | number:4 }}!</p>
+                                    <!--<p class="muted">My marker will stay open when the window is popped up!</p>-->
                                 </windows>
                             </markers>
 
@@ -202,9 +201,9 @@
                             <marker ng-repeat="m in map.markers" coords="m" icon="m.icon" click="onMarkerClicked(m)">
                                 <marker-label content="m.title" anchor="22 0" class="marker-labels"/>
                                 <window show="m.showWindow" closeClick="m.closeClick()">
-                                    <p>This is an info window at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>
+                                    <p>Incident  at {{ m.latitude | number:4 }}, {{ m.longitude | number:4 }}!</p>
 
-                                    <p class="muted">My marker will stay open when the window is popped up!</p>
+                                    <!--<p class="muted">My marker will stay open when the window is popped up!</p>-->
                                 </window>
                             </marker>
                         </google-map>

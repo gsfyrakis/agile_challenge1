@@ -32,7 +32,7 @@ function SearchCtrl($scope, Item) {
             maxZoom:20,
             minZoom:3
     },
-    zoom: 3,
+    zoom: 7,
         dragging: false,
         bounds: {},
     markers: [
