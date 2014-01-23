@@ -1,10 +1,9 @@
 var express = require('express');
 var fs = require('fs');
-var ExifImage = require('exif').ExifImage;
-var ffmpeg = require('fluent-ffmpeg');
-var Metalib =  ffmpeg.Metadata
 var sys = require('sys');
 var exec = require('child_process').exec;
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
 
 
 //var mediaStore = '/root/policeData/';
@@ -23,10 +22,7 @@ app.get('/home', function(req, res){
 });
 
 app.post('/upload', function(req, res){
-console.log('We have a nibble');
-console.log(req.body);
-console.log(req);
-res.send('Thanks guys');
+
 });
 
 app.post('/savevideo', function(req, res){
@@ -39,6 +35,22 @@ app.post('/savephoto', function(req, res){
 
 app.listen(3000);
 console.log('User server on port 3000');
+
+
+function getMetaData(url) {
+  var child = exec("exiftool -json -n  "+url, function (error, stdout, stderr) {
+    sys.print('stdout: ' + stdout);
+    sys.print('stderr: ' + stderr);
+    if (error !== null) {
+       console.log('exec error: ' + error);
+    }
+  });
+}
+
+function saveItem(url) {
+
+
+}
 
 
 /*function savePhoto(data, callback) {

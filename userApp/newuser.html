@@ -68,6 +68,7 @@
              <h3>Upload New Media</h3>
         </div>
   <div data-role="content">
+<<<<<<< HEAD
 <form action="/upload" method="post" enctype="multipart/form-data">
   <input type="file" name="myFile">
   <button>Send the file</button>
@@ -76,6 +77,9 @@
     </form>
     <form method="post" action="/upload" enctype="multipart/form-data">
 
+=======
+    <form method="post" action="javascript:void(0);" onsubmit="upload()" >
+>>>>>>> 0163e2f67e79993a8185a37ac5e2c9adb30e042b
       <label for="fname">First name:</label>
       <input type="text" name="fname" id="fname">
 	  
@@ -104,7 +108,7 @@
 	 <input type="file"  name="image" accept="image/*" capture>
 	 -->
 	  <label for="image" >Image:</label>
-	   <div class="hiddenfile"><input type="file"  data-clear-btn="false" name="image" accept="image/*" capture></div>
+	   <div class="hiddenfile"><input type="file"  data-clear-btn="false" id="image" name="image" accept="image/*" capture></div>
 	   <div id="preview"></div>
 		<ul id="mediainfo" data-role="listview" data-inset="true"></ul>
 	   <button id="chooseFile" >Choose file</button>
@@ -216,36 +220,32 @@
 			}(img));
 			reader.readAsDataURL(file);
 			//console.log("ok1");
-			FileUpload(img, file);
+			//FileUpload(img, file);
 			//console.log("ok2");
 		}
 	}
-	function FileUpload(img, file) {
-	  var reader = new FileReader();  
-	  //this.ctrl = createThrobber(img);
-	  var xhr = new XMLHttpRequest();
-	  this.xhr = xhr;
-	  
-	  var self = this;
-	  this.xhr.upload.addEventListener("progress", function(e) {
-			if (e.lengthComputable) {
-			  var percentage = Math.round((e.loaded * 100) / e.total);
-			  self.ctrl.update(percentage);
-			}
-		  }, false);
-	  
-	  xhr.upload.addEventListener("load", function(e){
-			  self.ctrl.update(100);
-			  var canvas = self.ctrl.ctx.canvas;
-			  canvas.parentNode.removeChild(canvas);
-		  }, false);
-	  xhr.open("POST", "http://localhost:3000/savephoto");
-	  xhr.overrideMimeType('text/plain; charset=x-user-defined-binary');
-	  reader.onload = function(evt) {
-		xhr.sendAsBinary(evt.target.result);
-	  };
-	  reader.readAsBinaryString(file);
-}
+	
+	 var client = new XMLHttpRequest();
+
+        function upload() {
+            var file = document.getElementById("image");
+
+            //create new FormData instance to transfer as Form Type
+            var formData = new FormData();
+            // add the file intended to be upload to the created FormData instance
+            formData.append("upload", file.files[0]);
+
+            client.open("post", "/upload", true);
+            client.setRequestHeader("Content-Type", "multipart/form-data");
+            client.send(formData);  // send formData to the server using XHR
+        }
+
+        // register handler to check XHR instance's status when receiving the response
+        client.onreadystatechange = function () {
+            if (client.readyState == 4 && client.status == 200) {
+                alert(client.statusText);
+            }
+        }
 
     </script>
 </body>
