@@ -1,9 +1,9 @@
 'use strict';
 
-var bookingApp = angular.module('bookingApp', [ 
-		'bookingServices', 'bookingControllers']);
+var metApp = angular.module('metApp', [ 
+		'metServices', 'metControllers']);
 
-bookingApp.config(['$routeProvider', function($routeProvider) {
+metApp.config(['$routeProvider', function($routeProvider) {
 	$routeProvider
 	.when('/home', {
 		templateUrl : 'partials/home.html',

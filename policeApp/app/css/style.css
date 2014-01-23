@@ -1,4 +1,10 @@
 body {
-    padding-top: 125px; /* Whatever the height of your navbar is; the
-                             default is 50px */
+	padding-top: 125px; /* Whatever the height of your navbar is; the
+	default is 50px */
 }
+
+.modal {
+	width: 80%; /* respsonsive width */
+	margin-left:10%; /* width/2) */
+}
+

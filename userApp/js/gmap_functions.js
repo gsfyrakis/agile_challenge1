@@ -26,10 +26,12 @@ function geocodePosition(pos) {
 //}
 
 function updateMarkerPosition(latLng) {
-  document.getElementById('info').innerHTML = [
+ /* document.getElementById('info').innerHTML = [
     latLng.lat().toString().substr(0, 12),
     latLng.lng().toString().substr(0, 12)
-  ].join(', ');
+  ].join(', ');*/
+  document.getElementById('_lat').innerHTML = latLng.lat().toString().substr(0, 12);
+  document.getElementById('_lng').innerHTML =     latLng.lng().toString().substr(0, 12);
 }
 
 function updateMarkerAddress(str) {
@@ -92,7 +94,7 @@ var visitor_lon=-0.177498;
 				  updateMarkerAddress(results[0].formatted_address);
               }
               else
-                alert('error: ' + status);
+                alert('Enter an address');
 
           });
       }

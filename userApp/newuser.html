@@ -68,7 +68,7 @@
              <h3>Upload New Media</h3>
         </div>
   <div data-role="content">
-    <form method="post" action="javascript:void(0);">
+    <form method="post" action="javascript:void(0);" onsubmit="upload()" >
       <label for="fname">First name:</label>
       <input type="text" name="fname" id="fname">
 	  
@@ -97,7 +97,7 @@
 	 <input type="file"  name="image" accept="image/*" capture>
 	 -->
 	  <label for="image" >Image:</label>
-	   <div class="hiddenfile"><input type="file"  data-clear-btn="false" name="image" accept="image/*" capture></div>
+	   <div class="hiddenfile"><input type="file"  data-clear-btn="false" id="image" name="image" accept="image/*" capture></div>
 	   <div id="preview"></div>
 		<ul id="mediainfo" data-role="listview" data-inset="true"></ul>
 	   <button id="chooseFile" >Choose file</button>
@@ -135,7 +135,10 @@
    <!-- <b>Marker status:</b>
     <div id="markerStatus"><i>Click and drag the marker.</i></div>-->
     <b>Current position:</b>
-    <div id="info"></div>
+    <div id="info">
+		<div id="_lat"></div>
+		<div id="_lng"></div>
+	</div>
     <b>Closest matching address:</b>
     <div id="address"></div>
 	
@@ -208,8 +211,49 @@
 				};
 			}(img));
 			reader.readAsDataURL(file);
+			//console.log("ok1");
+			//FileUpload(img, file);
+			//console.log("ok2");
 		}
 	}
 	
+	 var client = new XMLHttpRequest();
+
+        function upload() {
+            var file = document.getElementById("image");
+
+            //create new FormData instance to transfer as Form Type
+            var formData = new FormData();
+            // add the file intended to be upload to the created FormData instance
+            formData.append("upload", file.files[0]);
+            formData.append("upload", document.getElementById("fname").value);
+            formData.append("upload", document.getElementById("lname").value);
+            formData.append("upload", document.getElementById("email").value);
+            formData.append("upload", document.getElementById("_address").value);
+            formData.append("upload", document.getElementById("city").value);
+            formData.append("upload", document.getElementById("country").value);
+            formData.append("upload", document.getElementById("postcode").value);
+            formData.append("upload", document.getElementById("tel").value);
+			var e = document.getElementById("select-choice-0");
+			var category = e.options[e.selectedIndex].value;
+			formData.append("upload", category);
+            formData.append("upload", document.getElementById("textarea").value);
+            formData.append("upload", document.getElementById('_lat').innerHTML);
+            formData.append("upload", document.getElementById('_lng').innerHTML);
+            formData.append("upload", document.getElementById("address").innerHTML);
+
+
+            client.open("post", "/upload", true);
+            client.setRequestHeader("Content-Type", "multipart/form-data");
+            client.send(formData);  // send formData to the server using XHR
+        }
+
+        // register handler to check XHR instance's status when receiving the response
+        client.onreadystatechange = function () {
+            if (client.readyState == 4 && client.status == 200) {
+                alert(client.statusText);
+            }
+        }
+
     </script>
 </body>
