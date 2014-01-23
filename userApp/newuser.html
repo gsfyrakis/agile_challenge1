@@ -196,6 +196,7 @@
                         }
                         $info.listview("refresh");
                 });
+
     });
 
     function displayAsImage3(file, containerid) {
@@ -251,7 +252,8 @@
         // register handler to check XHR instance's status when receiving the response
         client.onreadystatechange = function () {
             if (client.readyState == 4 && client.status == 200) {
-                alert(client.statusText);
+                //alert(client.statusText);
+				alert("Thank you!");
             }
         }
 
