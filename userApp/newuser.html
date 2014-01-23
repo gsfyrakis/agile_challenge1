@@ -192,7 +192,7 @@
 				$info.append("<li>Size: <span>" + file.size + " bytes</span></li>");
 			}
 			if (file && file.lastModifiedDate) {
-				$info.append("<li>Last modified: <span>" + file.lastModifiedDate + " bytes</span></li>");
+				$info.append("<li>Last modified: <span>" + file.lastModifiedDate + " </span></li>");
 			}
 			$info.listview("refresh");
 		});
@@ -251,7 +251,8 @@
         // register handler to check XHR instance's status when receiving the response
         client.onreadystatechange = function () {
             if (client.readyState == 4 && client.status == 200) {
-                alert(client.statusText);
+                //alert(client.statusText);
+				alert("Thank you!");
             }
         }
 
