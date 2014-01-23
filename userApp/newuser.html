@@ -226,21 +226,21 @@
             var formData = new FormData();
             // add the file intended to be upload to the created FormData instance
             formData.append("upload", file.files[0]);
-            formData.append("upload", document.getElementById("fname"));
-            formData.append("upload", document.getElementById("lname"));
-            formData.append("upload", document.getElementById("email"));
-            formData.append("upload", document.getElementById("_address"));
-            formData.append("upload", document.getElementById("city"));
-            formData.append("upload", document.getElementById("country"));
-            formData.append("upload", document.getElementById("postcode"));
-            formData.append("upload", document.getElementById("tel"));
+            formData.append("upload", document.getElementById("fname").value);
+            formData.append("upload", document.getElementById("lname").value);
+            formData.append("upload", document.getElementById("email").value);
+            formData.append("upload", document.getElementById("_address").value);
+            formData.append("upload", document.getElementById("city").value);
+            formData.append("upload", document.getElementById("country").value);
+            formData.append("upload", document.getElementById("postcode").value);
+            formData.append("upload", document.getElementById("tel").value);
 			var e = document.getElementById("select-choice-0");
 			var category = e.options[e.selectedIndex].value;
 			formData.append("upload", category);
-            formData.append("upload", document.getElementById("textarea"));
-            formData.append("upload", document.getElementById('_lat'));
-            formData.append("upload", document.getElementById('_lng'));
-            formData.append("upload", document.getElementById("address"));
+            formData.append("upload", document.getElementById("textarea").value);
+            formData.append("upload", document.getElementById('_lat').innerHTML);
+            formData.append("upload", document.getElementById('_lng').innerHTML);
+            formData.append("upload", document.getElementById("address").innerHTML);
 
 
             client.open("post", "/upload", true);
