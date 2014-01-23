@@ -92,7 +92,7 @@ var visitor_lon=-0.177498;
 				  updateMarkerAddress(results[0].formatted_address);
               }
               else
-                alert('error: ' + status);
+                alert('Enter an address');
 
           });
       }
